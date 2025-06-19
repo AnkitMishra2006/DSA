@@ -13,6 +13,7 @@
     "initializer_list": "cpp",
     "regex": "cpp",
     "valarray": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "iostream": "cpp"
   }
 }
