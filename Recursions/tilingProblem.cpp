@@ -8,15 +8,6 @@ int countWays(int n)
         return 1;
     }
 
-    if (n == 2)
-    {
-        return 2;
-    }
-    if (n == 3)
-    {
-        return 3;
-    }
-
     // vertical choice
     int ways1 = countWays(n - 1);
 
