@@ -1,75 +1,84 @@
 #include <iostream>
 using namespace std;
+template <class T>
+class node
+{
+public:
+    T data;
+    node<T> *next;
 
-class node {
-  public:
-    int data;
-    node *next;
-
-    node(int val)
+    node(T val)
     {
-      data = val;
-      next = NULL;
+        data = val;
+        next = NULL;
     }
 };
 
 // We're inserting the elements at the head of the linked list to implement stacks, because then it will be easier to access the next element when popping.
+template <class T>
+class stack
+{
+    node<T> *top;
 
-class stack {
-  node *top;
-
-  public:
-    stack() {
-      top = NULL;
+public:
+    stack()
+    {
+        top = NULL;
     }
 
-    void push(int x) {
-      node *n = new node(x);
-      n->next = top;
-      top = n;
+    void push(T x)
+    {
+        node<T> *n = new node<T>(x);
+        n->next = top;
+        top = n;
     }
 
-    void pop() {
-      if (top == NULL) {
-        cout << "Stack underflow" << endl;
-        return;
-      }
+    void pop()
+    {
+        if (top == NULL)
+        {
+            cout << "Stack underflow" << endl;
+            return;
+        }
 
-      node *toDelete = top;
-      top = top->next;
+        node<T> *toDelete = top;
+        top = top->next;
 
-      delete toDelete;
+        delete toDelete;
     }
 
-    int peek() {
-      if (top == NULL) {
-        cout << "Stack empty" << endl;
-        return -1;
-      }
+    int peek()
+    {
+        if (top == NULL)
+        {
+            cout << "Stack empty" << endl;
+            return -1;
+        }
 
-      return top->data;
+        return top->data;
     }
 
-    bool isEmpty() {
-      return top == NULL;
+    bool isEmpty()
+    {
+        return top == NULL;
     }
 };
 
 int main()
 {
-  stack st;
-  st.push(1);
-  st.push(2);
-  st.push(3);
+    stack<int> st;
+    st.push(1);
+    st.push(2);
+    st.push(3);
 
-  cout << st.peek() << endl;
-  st.pop();
-  cout << st.peek() << endl;
-  st.pop();
-  st.pop();
-  st.pop();
+    cout << st.peek() << endl;
+    st.pop();
+    cout << st.peek() << endl;
+    st.pop();
+    st.pop();
+    st.pop();
 
-  cout << st.isEmpty() << endl;
+    cout << st.isEmpty() << endl;
 
-  return 0;
+    return 0;
 }
