@@ -38,14 +38,23 @@ int main()
     st.push(4);
     st.push(5);
 
+    cout << "Original Stack: ";
+    stack<int> temp = st; // Copy for display
+    while (!temp.empty())
+    {
+        cout << temp.top() << " ";
+        temp.pop();
+    }
+    cout << endl;
+
     reverse(st);
 
+    cout << "Reversed Stack: ";
     while (!st.empty())
     {
         cout << st.top() << " ";
         st.pop();
     }
-
     cout << endl;
 
     return 0;
