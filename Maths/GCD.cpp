@@ -28,11 +28,23 @@ int gcd2(int a, int b)
     return gcd;
 }
 
+// Euclid's algorithm for GCD
+int gcd3(int a, int b)
+{
+    while (b != 0)
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 int main()
 {
     int a, b;
     cout << "Enter two numbers: ";
     cin >> a >> b;
-    cout << "GCD of " << a << " and " << b << " is: " << gcd2(a, b) << endl;
+    cout << "GCD of " << a << " and " << b << " is: " << gcd3(a, b) << endl;
     return 0;
 }
