@@ -17,25 +17,25 @@ vector<int> mergedArray(vector<int> a, vector<int> b)
             if (merged.empty() || merged.back() != a[i])
             {
                 merged.push_back(a[i]);
-                i++;
             }
+            i++;
         }
         else if (a[i] > b[j])
         {
             if (merged.empty() || merged.back() != b[j])
             {
                 merged.push_back(b[j]);
-                j++;
             }
+            j++;
         }
         else
         {
             if (merged.empty() || merged.back() != a[i])
             {
                 merged.push_back(a[i]);
-                i++;
-                j++;
             }
+            i++;
+            j++;
         }
     }
     while (i < n1)
