@@ -41,6 +41,17 @@ void preOrder(Node *root)
     preOrder(root->right);
 }
 
+void postOrder(Node *root)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
+}
+
 int main()
 {
     vector<int> pre = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
@@ -48,6 +59,11 @@ int main()
 
     cout << "Pre-order traversal of the constructed tree: ";
     preOrder(root);
+    cout << endl;
+    cout << "Post-order traversal of the constructed tree: ";
+    postOrder(root);
+    cout << endl;
+    
 
     return 0;
 }
