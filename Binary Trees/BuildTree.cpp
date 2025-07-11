@@ -30,13 +30,24 @@ Node *buildTree(vector<int> pre)
     return newNode;
 }
 
+void preOrder(Node *root)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
 int main()
 {
     vector<int> pre = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
     Node *root = buildTree(pre);
-    cout << root->data << endl;        // Output the root node's data
-    cout << root->left->data << endl;  // Output the left child node's data
-    cout << root->right->data << endl; // Output the right child node's data
+
+    cout << "Pre-order traversal of the constructed tree: ";
+    preOrder(root);
 
     return 0;
 }
