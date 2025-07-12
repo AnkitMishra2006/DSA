@@ -122,6 +122,7 @@ int main()
     cout << endl;
     cout << "Height of the tree: " << height(root) << endl;
     cout << "Total number of nodes in the tree: " << countNodes(root) << endl;
+    cout << "Sum of all nodes in the tree: " << sumOfNodes(root) << endl;
 
     return 0;
 }
