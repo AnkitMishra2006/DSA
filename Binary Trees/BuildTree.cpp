@@ -76,6 +76,15 @@ void levelOrder(Node *root)
     levelOrder(root->right);
 }
 
+int height(Node *root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    return max(height(root->left), height(root->right)) + 1;
+}
+
 int main()
 {
     vector<int> pre = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
@@ -93,6 +102,7 @@ int main()
     cout << "Level-order traversal of the constructed tree: ";
     levelOrder(root);
     cout << endl;
+    cout << "Height of the tree: " << height(root) << endl;
 
     return 0;
 }
