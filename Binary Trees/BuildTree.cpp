@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Node
@@ -63,6 +64,18 @@ void inOrder(Node *root)
     inOrder(root->right);
 }
 
+void levelOrder(Node *root)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+
+    cout << root->data << " ";
+    levelOrder(root->left);
+    levelOrder(root->right);
+}
+
 int main()
 {
     vector<int> pre = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
@@ -76,6 +89,9 @@ int main()
     cout << endl;
     cout << "In-order traversal of the constructed tree: ";
     inOrder(root);
+    cout << endl;
+    cout << "Level-order traversal of the constructed tree: ";
+    levelOrder(root);
     cout << endl;
 
     return 0;
