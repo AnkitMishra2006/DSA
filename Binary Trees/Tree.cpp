@@ -85,6 +85,15 @@ int height(Node *root)
     return max(height(root->left), height(root->right)) + 1;
 }
 
+int countNodes(Node *root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    return countNodes(root->left) + countNodes(root->right) + 1;
+}
+
 int main()
 {
     vector<int> pre = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
@@ -103,6 +112,7 @@ int main()
     levelOrder(root);
     cout << endl;
     cout << "Height of the tree: " << height(root) << endl;
+    cout << "Total number of nodes in the tree: " << countNodes(root) << endl;
 
     return 0;
 }
