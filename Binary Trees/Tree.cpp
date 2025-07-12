@@ -94,6 +94,15 @@ int countNodes(Node *root)
     return countNodes(root->left) + countNodes(root->right) + 1;
 }
 
+int sumOfNodes(Node *root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    return root->data + sumOfNodes(root->left) + sumOfNodes(root->right);
+}
+
 int main()
 {
     vector<int> pre = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
